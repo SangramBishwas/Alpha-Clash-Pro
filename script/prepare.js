@@ -29,7 +29,11 @@ function removeBackgroundById(elementId){
     const element = document.getElementById(elementId);
     element.classList.remove('bg-warning');
 }
-
+function getElementTextById(elementId){
+    const element = document.getElementById(elementId);
+    const text = element.innerText;
+    return text;
+}
 function getElementValueById(elementId){
     const element = document.getElementById(elementId);
     const elementTextValue = element.innerText;

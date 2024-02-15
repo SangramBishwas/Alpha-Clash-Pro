@@ -78,9 +78,10 @@
         </div>
       </div>
     </section>
-    <section class="score flex-col justify-center items-center min-h-screen hidden">
+    <section onclick="play()" id="final-score" class="flex flex-col justify-center items-center min-h-screen hidden">
        <div class="text-center space-y-7 bg-[#FFFFFF33] rounded-xl p-10">
-        <h1 class="text-white text-8xl poppins-extrabold">Score<span class="font-semibold text-white"> : 14</span></h1>
+        <h3 class="text-3xl text-white font-semibold">Game Over!</h3>
+        <h1 class="text-white text-8xl poppins-extrabold">Score: <span id="last-score" class="font-semibold text-white">14</span></h1>
         <button class="btn font-bold text-xl">Play Now</button>
         <p class="text-white text-2xl font-medium">Practice will make you Pro</p>
        </div>

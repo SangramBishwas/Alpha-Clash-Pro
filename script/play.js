@@ -11,6 +11,9 @@ function continueGame() {
 function handleKeyboardKeyup(event) {
     //get expected press key
     const playerPressed = event.key;
+    if(playerPressed === 'Escape'){
+        gameOver();
+    }
     const currentAlphabetElement = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphabetElement.innerText;
     //Don't need to use for this Element.innerHTML
@@ -36,6 +39,9 @@ function handleKeyboardKeyup(event) {
         const lifeCount = getElementValueById('life-count');
         const newLlifeCount = lifeCount - 1;
         setElementValueById('life-count', newLlifeCount);
+        if(newLlifeCount === 0){
+            gameOver();
+        }
         //Update Life:
         //1. get the current life count
         //const currentLifeElement = document.getElementById('life-count')
@@ -50,7 +56,22 @@ function handleKeyboardKeyup(event) {
 document.addEventListener('keyup', handleKeyboardKeyup)
 
 function play() {
+    //hide everything show only the playground
     addHiddenByid('home-screen');
+    addHiddenByid('final-score');
     removeHiddenById('play-ground');
     continueGame();
+    //Reset life and score.
+    setElementValueById('current-score', 0);
+    setElementValueById('life-count', 5);
+}
+function gameOver(){
+    addHiddenByid('play-ground')
+    removeHiddenById('final-score');
+    // Show the final score
+    const lastScore = getElementValueById('current-score');
+    setElementValueById('last-score', lastScore);
+    //remove background coloro of previous keys
+    const previousAlphabet = getElementTextById('current-alphabet');
+    removeBackgroundById(previousAlphabet);
 }
