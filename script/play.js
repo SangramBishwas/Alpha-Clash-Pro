@@ -34,7 +34,7 @@ function handleKeyboardKeyup(event) {
         //currentScoreElement.innerText = newscore;
 
         continueGame();
-        removeBackgroundById(playerPressed);
+        removeBackgroundById(expectedAlphabet);
     } else {
         const lifeCount = getElementValueById('life-count');
         const newLlifeCount = lifeCount - 1;
